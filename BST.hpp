@@ -11,8 +11,6 @@ private:
     TreeNode<T>* helperInsert(TreeNode<T>*, T);
     bool helperSearch(TreeNode<T>*, T);
     void levelorderTraversalRecursive(TreeNode<T>*, int, std::function<void(T&)>);
-    TreeNode<T>* leftRotate(TreeNode<T>*);
-    TreeNode<T>* rightRotate(TreeNode<T>*);
     int getBalanceFactor(TreeNode<T>*);
     TreeNode<T>* helperRemove(TreeNode <T>*, T);
 
@@ -260,25 +258,6 @@ bool BST<T>::helperSearch(TreeNode<T> *node, T val)
     }
     
 }
-
-template <typename T>
-TreeNode<T>* BST<T>::leftRotate(TreeNode<T> *z)
-{
-    TreeNode<T> *y = z->right;
-    z->right = y->left;
-    y->left = z;
-    return y;
-}
-
-template <typename T>
-TreeNode<T>* BST<T>::rightRotate(TreeNode<T> *z)
-{
-    TreeNode<T> *y = z->left;
-    z->left = y->right;
-    y->right = z;
-    return y;
-}
-
 
 template <typename T>
 void BST<T>::levelorderTraversalRecursive(TreeNode<T> *node, int level, std::function<void(T&)> functor)
