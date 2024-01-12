@@ -180,7 +180,7 @@ void BST<T>::postorderTraversal(TreeNode<T> *node, std::function<void(T&)> funct
 template <typename T>
 int BST<T>::getBalanceFactor(TreeNode<T> *node)
 {
-    return getHeight(node->left) + getHeight(node->right);
+    return getHeight(node->left) - getHeight(node->right);
 }
 template <typename T>
 TreeNode<T>* BST<T>::helperRemove(TreeNode <T>* node, T key)
